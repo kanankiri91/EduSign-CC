@@ -1,0 +1,23 @@
+runtime: nodejs18
+
+instance_class: F2
+
+env_variables:
+  SECRET : 'qwerty'
+  USER : 'postgres'
+  HOST : '34.128.77.103'
+  DATABASE : 'postgres'
+  PASSWORD : 'qwertyuiop[]\'
+  PORT_DB : 5432
+
+automatic_scaling:
+  target_cpu_utilization: 0.65
+  min_instances: 1
+  max_instances: 10
+
+handlers:
+  - url: /.*
+    script: auto
+
+beta_settings:
+  cloud_sql_instances: edusignapp-bangkit2023:asia-southeast2:database-edusign
